@@ -5,6 +5,77 @@
         <title></title>
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <script>
+            //1 ariketa
+            function aldagaiakAldatu(){
+                let uno = document.getElementById('uno');
+                uno.innerHTML = 'Bat';
+                let dos = document.getElementById('dos');
+                dos.innerHTML = 'Bi';
+                let hiru = document.getElementById('hiru');
+                hiru.innerHTML = 'Hiru';
+            }
+            window.onload = aldagaiakAldatu;
+
+            //1.a ariketa
+            document.addEventListener('DOMContentLoaded', function(){
+                let uno = document.getElementById('uno');
+                function botoiaKlikatu(){ 
+                    
+                    console.log("click bat botoian, kolorea aldatzen");
+                    let h1 = document.querySelectorAll('h1');
+
+                    for(let i = 0; i < h1.length; i++){
+                        h1[i].style.color = 'red';
+                    }
+                }
+                uno.onclick = botoiaKlikatu;
+            });
+            
+            //1.b ariketa
+            document.addEventListener('DOMContentLoaded', function(){
+                let dos = document.getElementById('dos');
+                function botoiaKlikatu(){ 
+                    
+                    console.log("click bi botoian, h2 goiburuen testua aldatzen");
+                    let h2 = document.querySelectorAll('h2');
+
+                    for(let i = 0; i < h2.length; i++){
+                        h2[i].innerHTML = 'goiburu2-'+(i+1);
+                    }
+                }
+                dos.onclick = botoiaKlikatu;
+            });
+            //1.c ariketa"Hiru" izeneko botoian sakatzean kalkulu hau egin ezazu: 
+            //h1, h2 edo h3 elementu guztiak goiburuak izeneko array batean gorde
+
+           document.addEventListener('DOMContentLoaded', function(){
+                let hiru = document.getElementById('hiru');
+                function botoiaKlikatu(){ 
+                    
+                    console.log("click hiru botoian, h3 goiburuen testua gorde");
+                    let h1 = document.querySelectorAll('h1');
+                    let h2 = document.querySelectorAll('h2');
+                    let h3 = document.querySelectorAll('h3');
+                    let goiburuak = [];
+                    for(let i = 0; i < h1.length; i++){
+                        goiburuak.push(h1[i].innerText);
+                    }
+                    for(let i = 0; i < h2.length; i++){
+                        goiburuak.push(h2[i].innerText);
+                    }
+                    for(let i = 0; i < h3.length; i++){
+                        goiburuak.push(h3[i].innerText);
+                    }
+                    console.log(goiburuak);
+                }
+                hiru.onclick = botoiaKlikatu;
+            });
+
+            // 1c ariketa lerro bakar batean
+            document.addEventListener('DOMContentLoaded', () => document.getElementById('hiru').onclick = () => console.log([...document.querySelectorAll('h1,h2,h3')].map(el => el.innerText)));
+                
+        </script>
     </head>
     <body>
             <div class="header-container">
